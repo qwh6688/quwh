@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.citydo.quwh.dao.EvtOverviewMapper" >
+  <resultMap id="BaseResultMap" type="com.citydo.quwh.domain.EvtOverview" >
+    <result column="eventnum" property="eventnum" jdbcType="VARCHAR" />
+    <result column="in_processing" property="inProcessing" jdbcType="VARCHAR" />
+    <result column="complete" property="complete" jdbcType="VARCHAR" />
+    <result column="yzf" property="yzf" jdbcType="VARCHAR" />
+    <result column="closing_rate" property="closingRate" jdbcType="VARCHAR" />
+    <result column="etl_time" property="etlTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <insert id="insert" parameterType="com.citydo.quwh.domain.EvtOverview" >
+    insert into wusi_village_sentiment_evt_overview (eventnum, in_processing, complete, 
+      yzf, closing_rate, etl_time
+      )
+    values (#{eventnum,jdbcType=VARCHAR}, #{inProcessing,jdbcType=VARCHAR}, #{complete,jdbcType=VARCHAR}, 
+      #{yzf,jdbcType=VARCHAR}, #{closingRate,jdbcType=VARCHAR}, #{etlTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.citydo.quwh.domain.EvtOverview" >
+    insert into wusi_village_sentiment_evt_overview
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="eventnum != null" >
+        eventnum,
+      </if>
+      <if test="inProcessing != null" >
+        in_processing,
+      </if>
+      <if test="complete != null" >
+        complete,
+      </if>
+      <if test="yzf != null" >
+        yzf,
+      </if>
+      <if test="closingRate != null" >
+        closing_rate,
+      </if>
+      <if test="etlTime != null" >
+        etl_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="eventnum != null" >
+        #{eventnum,jdbcType=VARCHAR},
+      </if>
+      <if test="inProcessing != null" >
+        #{inProcessing,jdbcType=VARCHAR},
+      </if>
+      <if test="complete != null" >
+        #{complete,jdbcType=VARCHAR},
+      </if>
+      <if test="yzf != null" >
+        #{yzf,jdbcType=VARCHAR},
+      </if>
+      <if test="closingRate != null" >
+        #{closingRate,jdbcType=VARCHAR},
+      </if>
+      <if test="etlTime != null" >
+        #{etlTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+</mapper>

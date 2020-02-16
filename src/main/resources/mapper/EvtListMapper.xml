@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.citydo.quwh.dao.EvtListMapper" >
+  <resultMap id="BaseResultMap" type="com.citydo.quwh.domain.EvtList" >
+    <result column="id" property="id" jdbcType="VARCHAR" />
+    <result column="beforeImage" property="beforeimage" jdbcType="VARCHAR" />
+    <result column="categoryName" property="categoryname" jdbcType="VARCHAR" />
+    <result column="categoryName2" property="categoryname2" jdbcType="VARCHAR" />
+    <result column="createDate" property="createdate" jdbcType="VARCHAR" />
+    <result column="createId" property="createid" jdbcType="VARCHAR" />
+    <result column="createUser" property="createuser" jdbcType="VARCHAR" />
+    <result column="doneDate" property="donedate" jdbcType="VARCHAR" />
+    <result column="eventContent" property="eventcontent" jdbcType="VARCHAR" />
+    <result column="gridName" property="gridname" jdbcType="VARCHAR" />
+    <result column="latLng" property="latlng" jdbcType="VARCHAR" />
+    <result column="opinion" property="opinion" jdbcType="VARCHAR" />
+    <result column="etl_time" property="etlTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <insert id="insert" parameterType="com.citydo.quwh.domain.EvtList" >
+    insert into wusi_village_sentiment_latest_event_list (id, beforeImage, categoryName, 
+      categoryName2, createDate, createId, 
+      createUser, doneDate, eventContent, 
+      gridName, latLng, opinion, 
+      etl_time)
+    values (#{id,jdbcType=VARCHAR}, #{beforeimage,jdbcType=VARCHAR}, #{categoryname,jdbcType=VARCHAR}, 
+      #{categoryname2,jdbcType=VARCHAR}, #{createdate,jdbcType=VARCHAR}, #{createid,jdbcType=VARCHAR}, 
+      #{createuser,jdbcType=VARCHAR}, #{donedate,jdbcType=VARCHAR}, #{eventcontent,jdbcType=VARCHAR}, 
+      #{gridname,jdbcType=VARCHAR}, #{latlng,jdbcType=VARCHAR}, #{opinion,jdbcType=VARCHAR}, 
+      #{etlTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.citydo.quwh.domain.EvtList" >
+    insert into wusi_village_sentiment_latest_event_list
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="beforeimage != null" >
+        beforeImage,
+      </if>
+      <if test="categoryname != null" >
+        categoryName,
+      </if>
+      <if test="categoryname2 != null" >
+        categoryName2,
+      </if>
+      <if test="createdate != null" >
+        createDate,
+      </if>
+      <if test="createid != null" >
+        createId,
+      </if>
+      <if test="createuser != null" >
+        createUser,
+      </if>
+      <if test="donedate != null" >
+        doneDate,
+      </if>
+      <if test="eventcontent != null" >
+        eventContent,
+      </if>
+      <if test="gridname != null" >
+        gridName,
+      </if>
+      <if test="latlng != null" >
+        latLng,
+      </if>
+      <if test="opinion != null" >
+        opinion,
+      </if>
+      <if test="etlTime != null" >
+        etl_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="beforeimage != null" >
+        #{beforeimage,jdbcType=VARCHAR},
+      </if>
+      <if test="categoryname != null" >
+        #{categoryname,jdbcType=VARCHAR},
+      </if>
+      <if test="categoryname2 != null" >
+        #{categoryname2,jdbcType=VARCHAR},
+      </if>
+      <if test="createdate != null" >
+        #{createdate,jdbcType=VARCHAR},
+      </if>
+      <if test="createid != null" >
+        #{createid,jdbcType=VARCHAR},
+      </if>
+      <if test="createuser != null" >
+        #{createuser,jdbcType=VARCHAR},
+      </if>
+      <if test="donedate != null" >
+        #{donedate,jdbcType=VARCHAR},
+      </if>
+      <if test="eventcontent != null" >
+        #{eventcontent,jdbcType=VARCHAR},
+      </if>
+      <if test="gridname != null" >
+        #{gridname,jdbcType=VARCHAR},
+      </if>
+      <if test="latlng != null" >
+        #{latlng,jdbcType=VARCHAR},
+      </if>
+      <if test="opinion != null" >
+        #{opinion,jdbcType=VARCHAR},
+      </if>
+      <if test="etlTime != null" >
+        #{etlTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+</mapper>
